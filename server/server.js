@@ -11,7 +11,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/slack', function (req, res) {
-  res.send('Slackkk!');
+  res.header('Access-Control-Allow-Origin',  '*');
+res.send('Slackkk!');
 
   console.log('url : ' + req.body.token);
   request.post({
