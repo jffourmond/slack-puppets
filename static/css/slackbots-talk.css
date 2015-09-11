@@ -1,0 +1,33 @@
+/* HTML elements */
+
+h1 {
+  margin-top : 10px;
+}
+
+/* bootstrap classes */
+
+.row {
+	padding : 10px 10px 0px 10px;
+}
+
+.row > div {
+  padding : 10px 10px 10px 10px;
+}
+
+/* custom classes */  
+
+.bandeau{
+  background-color : #4D384B;
+}
+
+.titre {
+  	color : white;
+}
+
+.titre small{
+  color : #f5f5f5;
+}
+
+
+
+
