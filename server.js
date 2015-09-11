@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(express.static('client'));
 
-app.post('/slack', function (req, res) {
+app.post('/messages', function (req, res) {
 
   console.log('url : ' + req.body.token);
   request.post({
