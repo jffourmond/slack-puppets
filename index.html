@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1" />
+    <title>Freelance Impôt : simulateur de calcul d'impôt sur le revenu ultra simplifié, pour travailleurs indépendants</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="css/freelance-impot.css">
+</head>
+
+<body data-ng-app="app">
+
+    <div class="container-fluid bandeau">
+        <div class="row">
+            <div class="titre col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <h1>Freelance Impôt<br/>
+             <small>Simulateur de calcul d'impôt sur le revenu ultra simplifié pour indépendants</small>
+           </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      
+		<div class="row" ng-controller="CalculCtrl">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 bloc-inputs arrondi">
+				
+				<form ng-submit="posterMessage()">
+					token : <input ng-model="token" /><br/>
+					channel : <input ng-model="channel" /><br/>
+					username : <input ng-model="username" /><br/>
+					icon_url : <input ng-model="iconUrl" /><br/>
+					text : <input ng-model="text" /><br/>
+					<input type="submit">poster</input>
+				</form>
+
+			</div>
+		</div>		
+
+        <div class="row">
+            <div class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js"></script>
+
+    <script src="js/app.js" type="application/javascript"></script>
+    <script src="js/calculController.js" type="application/javascript"></script>
+    <script src="js/calculService.js" type="application/javascript"></script>
+   
+</body>
+
+</html>
