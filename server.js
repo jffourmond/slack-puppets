@@ -6,12 +6,7 @@ var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.use(express.static('static'));
-
-app.get('/', function (req, res) {
-    res.sendFile('/home/jffourmond/slack-puppets/index.html');
-
-});
+app.use(express.static('client'));
 
 app.post('/slack', function (req, res) {
 
