@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1" />
-    <title>Slack Puppets : théâtre de marionnettes pour Slack Bots</title>
+    <title>Slackbots Talk</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -18,8 +18,8 @@
     <div class="container-fluid bandeau">
         <div class="row">
             <div class="titre col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <h1>Slack Puppets<br/>
-					<small>Prompteur pour Slack Bots</small>
+                <h1>Slackbots Talk<br/>
+					<small>L'appli qui fait parler</small>
 				</h1>
             </div>
         </div>
@@ -30,12 +30,12 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 bloc-inputs arrondi">
 				
 				<form ng-submit="posterMessage()">
-					token : <input ng-model="token" /><br/>
-					channel : <input ng-model="channel" /><br/>
-					username : <input ng-model="username" /><br/>
-					icon_url : <input ng-model="iconUrl" /><br/>
-					text : <input ng-model="text" /><br/>
-					<input type="submit">poster</input>
+					token : <input id="token" ng-model="token" size="50"/><br/>
+					channel (ex : #general) : <input id="channel" ng-model="channel" /><br/>
+					username (ex : François Hollande) : <input id="username" ng-model="username" /><br/>
+					icon_url : <input id="icon_url" ng-model="iconUrl" size="80"/><br/>
+					text : <textarea id="text" ng-model="text" ></textarea><br/>
+				<input type="submit"></input>
 				</form>
 
 			</div>
