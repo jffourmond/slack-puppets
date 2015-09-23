@@ -29,22 +29,26 @@
 		<div class="row" ng-controller="TalkCtrl">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 bloc-inputs">	
 				<form ng-submit="posterMessage()" class="form-horizontal" autocomplete="on">
-				 <div class="form-group">
+				 <div class="form-group required">
 					<label for="token" class="col-lg-3 control-label">API token</label>
 					<div class="col-lg-9">
-						<input class="form-control" id="token" name="token" placeholder="Exemple : xoxb-1234567890-VjlWXYZZabcdL0CeozQ3Lxa99" ng-model="token"/>
+						<input class="form-control" id="token" name="token" 
+							placeholder="Exemple : xoxb-1234567890-VjlWXYZZabcdL0CeozQ3Lxa99" 
+							ng-model="token" required/>
 					</div>
 				 </div>
-				 <div class="form-group">
+				 <div class="form-group required">
 					<label for="channel" class="col-lg-3 control-label">Nom du salon</label>
 					<div class="col-lg-9">
-						<input class="form-control" id="channel" name="channel" placeholder="Exemple : #general" ng-model="channel"/>
+						<input class="form-control" id="channel" name="channel" placeholder="Exemple : #general" 
+							ng-model="channel" required/>
 					</div>
 				 </div>
-				 <div class="form-group">
+				 <div class="form-group required">
 					<label for="username" class="col-lg-3 control-label">Pseudonyme du bot</label>
 					<div class="col-lg-9">
-						<input class="form-control" id="username" name="username" placeholder="Exemple : George Abitbol" ng-model="username"/>
+						<input class="form-control" id="username" name="username" placeholder="Exemple : George Abitbol" 
+							ng-model="username" required/>
 					</div>	
 				 </div>
 				 <div class="form-group">
@@ -53,16 +57,20 @@
 						<input class="form-control" id="icon_url" name="icon_url" placeholder="URL de l'image de l'avatar du bot" ng-model="iconUrl" />
 					</div>	
 				 </div>
-				 <div class="form-group">
+				 <div class="form-group required">
 					<label for="text" class="col-lg-3 control-label">Message</label>
 					<div class="col-lg-9">
-						<textarea class="form-control" id="text" name="text" placeholder="Tapez ici le message à envoyer..." ng-model="text"></textarea>
+						<textarea class="form-control" id="text" name="text" placeholder="Tapez ici le message à envoyer..." 
+							ng-model="text" required></textarea>
 					</div>	
 				 </div>				 
 				  <div class="form-group">
 					<div class="col-lg-offset-3 col-lg-9">
 					  <button type="submit" class="btn btn-default">Envoyer</button>
-					</div>			
+					<span ng-show="loading">
+						<img src="img/load.gif" alt="Loading..." />
+					</span>
+                                        </div>			
 				</form>
 
 			</div>

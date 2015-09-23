@@ -4,7 +4,7 @@ app.service('talkService', ['$http', function ($http) {
 
     this.posterMessage = function (token, channel, username, iconUrl, text) {
 
-		$http.post('/messages', { 
+		return $http.post('/messages', { 
 				token: token, 
 				channel: channel, 
 				username: username, 
