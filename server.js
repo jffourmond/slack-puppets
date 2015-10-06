@@ -9,22 +9,31 @@ app.use(express.static('client'));
 
 app.post('/messages', function (req, res) {
 
-  console.log('url : ' + req.body.token);
+  var body = req.body;
+  console.log('url : ' + body.token);
   request.post({
     url:     'https://slack.com/api/chat.postMessage',
     form:    {
-	token :  req.body.token, 
-        username :  req.body.username, 
-        channel : req.body.channel,
-        text : req.body.text,
-        icon_url : req.body.icon_url
+	token :  body.token, 
+        username :  body.username, 
+        channel : body.channel,
+        text : body.text,
+        icon_url : body.icon_url, 
+        parse : 'full'
     }
   }, 
-  function(error, response, body){
-   console.log(body);
+  function(error, response, bodyString){
+    var status = response.statusCode;
+    var body = JSON.parse(bodyString);
+    console.log('STATUS : ' + status + ' / BODY : ' + body.ok);
+    if (body.ok === false){
+     console.log('ERROR : ' + bodyString);
+     res.status(500).send(body.error);
+    } else {
+     res.send('OK');
+    };
   });
 
-res.send('Slackkk!');
 });
 
 var server = app.listen(3000, function () {
