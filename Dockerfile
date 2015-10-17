@@ -16,8 +16,7 @@ RUN apt-get -y install npm
 RUN npm install express --save
 RUN npm install request --save
 RUN npm install body-parser --save
-
-EXPOSE 3000
+RUN npm install moment --save
 
 # Lance Node.js au démarrage du container
 CMD ["nodejs", "server.js"]

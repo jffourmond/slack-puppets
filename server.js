@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
@@ -10,7 +11,7 @@ app.use(express.static('client'));
 app.post('/messages', function (req, res) {
 
   var body = req.body;
-  var dateTime = new Date().toISOString();
+  var dateTime = moment().format('YYYY-MM-DD HH:mm:ss');;
   var ip = req.connection.remoteAddress;
   console.log('Message received at %s from IP %s : username = %s and channel = %s', dateTime, ip, body.username, body.channel);
   
