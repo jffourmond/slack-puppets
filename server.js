@@ -1,18 +1,19 @@
-var express = require('express');
-var request = require('request');
-var bodyParser = require('body-parser');
-var moment = require('moment');
+'use strict';
 
-var app = express();
+let express = require('express');
+let request = require('request');
+let bodyParser = require('body-parser');
+let moment = require('moment');
+
+let app = express();
 app.use(bodyParser.json()); // support json encoded bodies
-
 app.use(express.static('client'));
 
 app.post('/messages', function (req, res) {
 
-  var body = req.body;
-  var dateTime = moment().format('YYYY-MM-DD HH:mm:ss');;
-  var ip = req.connection.remoteAddress;
+  let body = req.body;
+  let dateTime = moment().format('YYYY-MM-DD HH:mm:ss');;
+  let ip = req.connection.remoteAddress;
   console.log('Message received at %s from IP %s : username = %s and channel = %s', dateTime, ip, body.username, body.channel);
   
   request.post({
@@ -27,8 +28,8 @@ app.post('/messages', function (req, res) {
     }
   }, 
   function(error, response, bodyString){
-    var status = response.statusCode;
-    var body = JSON.parse(bodyString);
+    let status = response.statusCode;
+    let body = JSON.parse(bodyString);
     console.log('Status : ' + status + ' / success : ' + body.ok);
     if (body.ok === false){
      console.log('ERROR : ' + bodyString);
@@ -41,7 +42,7 @@ app.post('/messages', function (req, res) {
 });
 
 var server = app.listen(3001, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+  let host = server.address().address;
+  let port = server.address().port;
   console.log('App listening at http://%s:%s', host, port);
 });
