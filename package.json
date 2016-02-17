@@ -1,0 +1,15 @@
+{
+  "name": "slactor",
+  "version": "1.0.0",
+  "author": "Jean-François Fourmond <jffourmond@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.13.4", 
+    "request": "2.69.0",    
+    "body-parser": "1.15.0",    
+    "moment": "2.11.2"
+  }
+}

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1" />
-    <title>Slackbots Talk : l'appli qui fait parler les Slack Bots</title>
+    <title>Slactor : l'appli qui fait parler les Slack Bots</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="css/slackbots-talk.css">
+    <link rel="stylesheet" href="css/slactor.css">
 </head>
 
 <body data-ng-app="app">
@@ -18,81 +18,83 @@
     <div class="container-fluid bandeau">
         <div class="row">
             <div class="titre col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <h1>Slack Puppets<br/>
-					<small>L'appli qui fait parler les Slackbots</small>
+                <h1>Slactor<br/>
+					<small>L'appli qui fait parler les slackbots</small>
 				</h1>
             </div>
         </div>
     </div>
     <div class="container">
-      
-		<div class="row" ng-controller="TalkCtrl">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 bloc-inputs">	
-				<form ng-submit="posterMessage()" class="form-horizontal" autocomplete="on">
-				 <div class="form-group required">
-					<label for="token" class="col-lg-3 control-label">API token</label>
-					<div class="col-lg-9">
-						<input class="form-control" id="token" name="token" 
-							placeholder="Exemple : xoxb-1234567890-VjlWXYZZabcdL0CeozQ3Lxa99" 
-							ng-model="token" required/>
-					</div>
-				 </div>
-				 <div class="form-group required">
-					<label for="channel" class="col-lg-3 control-label">Nom du salon</label>
-					<div class="col-lg-9">
-						<input class="form-control" id="channel" name="channel" placeholder="Exemple : #general" 
-							ng-model="channel" required ng-focus="passerEnModeSaisie()"/>
-					</div>
-				 </div>
-				 <div class="form-group required">
-					<label for="username" class="col-lg-3 control-label">Pseudonyme du bot</label>
-					<div class="col-lg-9">
-						<input class="form-control" id="username" name="username" placeholder="Exemple : George Abitbol" 
-							ng-model="username" required ng-focus="passerEnModeSaisie()"/>
-					</div>	
-				 </div>
-				 <div class="form-group">
-					<label for="icon_url" class="col-lg-3 control-label">URL de l'image du bot</label>
-					<div class="col-lg-9">
-						<input type="url" class="form-control" id="icon_url" name="icon_url" 
-							placeholder="URL de l'image de l'avatar du bot" ng-model="iconUrl"
-							ng-focus="passerEnModeSaisie()" />
-					</div>	
-				 </div>
-				 <div class="form-group required">
-					<label for="text" class="col-lg-3 control-label">Message</label>
-					<div class="col-lg-9">
-						<textarea class="form-control" id="text" name="text" placeholder="Tapez ici le message à envoyer..." 
-							ng-model="text" required ng-focus="passerEnModeSaisie()"></textarea>
-					</div>	
-				 </div>				 
-				  <div class="form-group">
-					<div class="col-lg-offset-3 col-lg-9">
-					  <button type="submit" class="btn btn-default">Envoyer</button>
-					<span ng-show="isStatutEnvoi()">
-						<img src="img/loading.gif" alt="Loading..." />
-					</span>
-                                        <span ng-show="isStatutOK()">
-                                                <img src="img/OK.png" alt="Message sent." />
-                                                <span class="success">Message envoyé</span>
-                                        </span>
-                                        <span ng-show="isStatutKO()">
-                                                <img src="img/KO.png" alt="Message not sent." />
-                                                <span class="error">{{errorMessage}}</span>
-                                        </span>
 
-                                        </div>			
-				</form>
+        <div class="row" ng-controller="SlactorCtrl">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 bloc-inputs">
+                <form ng-submit="posterMessage()" class="form-horizontal" autocomplete="on">
 
-			</div>
-		</div>		
+                    <div class="form-group required">
+                        <label for="channel" class="col-lg-3 control-label">Nom du salon</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" id="channel" name="channel" 
+                                placeholder="Exemple : #general" 
+                                ng-model="channel" 
+                                required ng-focus="passerEnModeSaisie()" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="username" class="col-lg-3 control-label">Pseudonyme du bot</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" id="username" name="username" placeholder="Exemple : George Abitbol" ng-model="username" required
+                            ng-focus="passerEnModeSaisie()" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="icon_url" class="col-lg-3 control-label">URL de l'image du bot</label>
+                        <div class="col-lg-9">
+                            <input type="url" class="form-control" id="icon_url" name="icon_url" placeholder="URL de l'image de l'avatar du bot" ng-model="iconUrl"
+                            ng-focus="passerEnModeSaisie()" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="text" class="col-lg-3 control-label">Message</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" id="text" name="text" placeholder="Tapez ici le message à envoyer..." ng-model="text" required
+                            ng-focus="passerEnModeSaisie()"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="password" class="col-lg-3 control-label">Mot de passe</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" id="password" name="password" ng-model="password" required/>
+                        </div>
+                    </div>
 
-        <div class="row">
-            <div class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-9">
+                            <button type="submit" class="btn btn-default">Envoyer</button>
+                            <span ng-show="isStatutEnvoi()">
+						        <img src="img/loading.gif" alt="Loading..." />
+                            </span>
+                            <span ng-show="isStatutOK()">
+                                <img src="img/OK.png" alt="Message sent." />
+                                <span class="success">Message envoyé</span>
+                            </span>
+                            <span ng-show="isStatutKO()">
+                                <img src="img/KO.png" alt="Message not sent." />
+                                <span class="error">{{errorMessage}}</span>
+                            </span>
+
+                        </div>
+                    </div>
+                </form>
 
             </div>
-        </div>
 
+            <div class="row">
+                <div class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+                </div>
+            </div>
+        </div>
     </div>
     <!-- container -->
 
@@ -105,9 +107,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.min.js"></script>
 
     <script src="js/app.js" type="application/javascript"></script>
-    <script src="js/talkController.js" type="application/javascript"></script>
-    <script src="js/talkService.js" type="application/javascript"></script>
-   
+    <script src="js/slactorController.js" type="application/javascript"></script>
+    <script src="js/slactorService.js" type="application/javascript"></script>
+
 </body>
 
 </html>
