@@ -1,8 +1,7 @@
 # Slactor
 Une appli web pour faire parler des slackbots.
 
-Par exemple : 
-
+Exemple :  
 ![George Abitbol : Si tu veux me parler, envoie-moi un... fax !](img/george.png)
 
 ## Technologies utilisées
