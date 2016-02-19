@@ -16,8 +16,8 @@ Exemple :
 
 ## Lancer l'appli avec Docker 
 
-1. git clone https://github.com/jffourmond/slactor.git
-2. cd slactor
+1. `git clone https://github.com/jffourmond/slactor.git`
+2. `cd slactor`
 3. Editer le fichier server.js et modifier les valeurs suivantes : 
   1. TMP_TOKEN : le jeton de sécurité généré en bas de [cette page](https://api.slack.com/web) pour la team Slack de votre choix. 
   Ex : xoxb-123456789-ABlcDefghiJ2KlmnoP3KlM45
