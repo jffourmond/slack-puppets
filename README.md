@@ -2,7 +2,7 @@
 Une appli web pour faire parler des slackbots
 
 Par exemple : 
-[George Abitbol : Si tu veux me parler, envoie-moi un... fax !](img/george.png)
+![George Abitbol : Si tu veux me parler, envoie-moi un... fax !](img/george.png)
 
 ## Technologies utilisées
  
@@ -26,4 +26,4 @@ Par exemple :
 
 ## Pour voir à quoi ressemble l'appli
 
-Une instance l'application est déployée à cette adresse : http://slactor.jffourmond.com/
+Une version de l'application est déployée à cette adresse : http://slactor.jffourmond.com/
