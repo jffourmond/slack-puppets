@@ -1,5 +1,4 @@
-# Se base sur une image NodeJS 5
-FROM node:5-slim
+FROM node:6.2.2
 
 RUN mkdir -p /docker/slactor
 COPY . /docker/slactor/

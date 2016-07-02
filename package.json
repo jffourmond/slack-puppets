@@ -1,6 +1,6 @@
 {
   "name": "slactor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Jean-François Fourmond <jffourmond@gmail.com>",
   "main": "server.js",
   "scripts": {
