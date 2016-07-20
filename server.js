@@ -19,10 +19,10 @@ function postToSlack(slactorRequest, slactorResponse) {
         url: SLACK_URL,
         form: {
             token: TOKEN,
-            username: body.username,
+            username: body.botName,
             channel: body.channel,
-            text: body.text,
-            icon_url: body.icon_url,
+            text: body.message,
+            icon_url: body.iconUrl,
             parse: 'full'
         }
     },
@@ -31,7 +31,7 @@ function postToSlack(slactorRequest, slactorResponse) {
             const body = JSON.parse(bodyString);
             console.log(`Status : ${status} / success : ${body.ok}`);
             if (body.ok === false) {
-                sendErrorToSlactor(bodyString, slactorResponse);
+                sendErrorToSlactor(body.error, slactorResponse);
             } else {
                 slactorResponse.send('OK');
             };
