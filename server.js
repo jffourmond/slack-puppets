@@ -5,7 +5,7 @@ const moment = require('moment');
 
 const app = express();
 const PASSWORD = 'TMP_PASSWORD';
-const TOKEN = 'TMP_TOKEN';
+const TOKEN = 'xoxp-3577016198-3574982747-21590050177-7f0bf5d84f';
 const SLACK_URL = 'https://slack.com/api/chat.postMessage';
 
 function sendErrorToSlactor(errorMsg, slactorResponse) {
@@ -53,7 +53,7 @@ app.post('/messages', (slactorRequest, slactorResponse) => {
     const connection = slactorRequest.connection;
     const ip = slactorRequest.remoteAddress;
     console.log(`Message received at ${dateTime} from IP ${ip} : 
-        username = ${body.username}, channel = ${body.channel} and password = ${body.password}`);
+        bot name = ${body.botName}, channel = ${body.channel} and password = ${body.password}`);
 
     if (body.password === PASSWORD) {
         postToSlack(slactorRequest, slactorResponse);
