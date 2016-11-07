@@ -5,6 +5,7 @@ COPY . /docker/slactor/
 WORKDIR /docker/slactor
 #--no-bin-links nécessaire sous Windows
 RUN npm install --no-bin-links 
+RUN npm install browserify -g
 RUN npm run build
 
 CMD [ "npm", "start" ]
