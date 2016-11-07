@@ -5,7 +5,7 @@ const moment = require('moment');
 
 const app = express();
 const PASSWORD = 'TMP_PASSWORD';
-const TOKEN = 'xoxp-3577016198-3574982747-21590050177-7f0bf5d84f';
+const TOKEN = 'TMP_TOKEN';
 const SLACK_URL = 'https://slack.com/api/chat.postMessage';
 
 function sendErrorToSlactor(errorMsg, slactorResponse) {
