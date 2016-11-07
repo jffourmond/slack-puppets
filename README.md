@@ -6,8 +6,8 @@ Exemple :
 
 ## Technologies utilisées
  
-* JavaScript
-* AngularJS 1.4
+* ECMAScript 6
+* React
 * Node.js
 * Bootstrap 3
 * HTML 5
