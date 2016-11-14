@@ -1,3 +1,4 @@
+import React from 'react';
 export default class SlactorInput extends React.Component {
 
   render() {

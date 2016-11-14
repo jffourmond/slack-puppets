@@ -1,9 +1,7 @@
+import React from 'react';
 import SlactorInput from './SlactorInput.jsx';
-
-const SAISIE = 1;
-const ENVOI = 2;
-const OK = 3;
-const KO = 4;
+import SlactorStatus from './SlactorStatus.jsx';
+import { SAISIE, OK, KO } from './constants.js';
 
 export default class SlactorForm extends React.Component {
 
@@ -19,7 +17,7 @@ export default class SlactorForm extends React.Component {
         this.handleInputFocus = this.handleInputFocus.bind(this);
         
         this.state = {
-            statut: SAISIE
+            status: SAISIE
         };
     }
 
@@ -56,16 +54,16 @@ export default class SlactorForm extends React.Component {
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             console.log("OK " + response);
-            form.setState({ statut: OK });
+            form.setState({ status: OK });
         }).fail(function (jqXHR) {
             console.log("KO " + jqXHR.responseText);
-            form.setState({ statut: KO, error: jqXHR.responseText });
+            form.setState({ status: KO, error: jqXHR.responseText });
         });
     }
 
     handleInputFocus(){
-        if (this.state.statut === OK || this.state.statut === KO) {
-            this.setState({ statut: SAISIE });
+        if (this.state.status === OK || this.state.status === KO) {
+            this.setState({ status: SAISIE });
         }
     }
 
@@ -73,30 +71,12 @@ export default class SlactorForm extends React.Component {
 
         this.handleInputFocus();
 
-        if (this.state.statut === OK) {
+        if (this.state.status === OK) {
             this.setState({ message: '' });
         }        
     }
 
     render() {
-
-        /* l'image success/échec affichée après envoi du message */
-        var imageStatut = null;
-        if (this.state.statut === ENVOI) {
-            imageStatut = <span>
-                <img src="img/loading.gif" alt="Loading..." />
-            </span>
-        } else if (this.state.statut === OK) {
-            imageStatut = <span>
-                <img src="img/OK.png" alt="Message sent." />
-                <span className="success">Message envoyé</span>
-            </span>
-        } else if (this.state.statut === KO) {
-            imageStatut = <span>
-                <img src="img/KO.png" alt="Message not sent." />
-                <span className="error">{this.state.error}</span>
-            </span>
-        }
 
         return (
             <div className="row">
@@ -147,7 +127,7 @@ export default class SlactorForm extends React.Component {
                         <div className="form-group">
                             <div className="col-lg-offset-3 col-lg-9">
                                 <input type="submit" className="btn btn-default" value="Envoyer"/>
-                                {imageStatut}
+                                <SlactorStatus status={this.state.status} error={this.state.error}/>
                             </div>
                         </div>
                     </form>
