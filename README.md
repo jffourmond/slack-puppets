@@ -8,6 +8,7 @@ Exemple :
  
 * ECMAScript 6
 * React
+* React Storybook
 * Node.js
 * Bootstrap 3
 * HTML 5
