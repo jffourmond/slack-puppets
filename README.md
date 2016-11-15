@@ -8,7 +8,7 @@ Exemple :
  
 * ECMAScript 6
 * React
-* React Storybook
+* [React Storybook](http://slactor.jffourmond.com/dist/storybook)
 * Node.js
 * Bootstrap 3
 * HTML 5
