@@ -23,6 +23,7 @@
     "clean": "rm -rf client/slactor.js",
     "compile-client": "browserify client/js/client.jsx -o client/slactor.js -d -t [ babelify --presets [ es2015 react ] ] ",
     "storybook": "start-storybook -s ./client -p 9001",
+    "storybook-export" : "build-storybook -s ./client -o client/dist/storybook",
     "build": "npm run clean && npm run compile-client",
     "start": "node server.js"
   }

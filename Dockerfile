@@ -7,5 +7,6 @@ WORKDIR /docker/slactor
 RUN npm install --no-bin-links 
 RUN npm install browserify -g
 RUN npm run build
+RUN npm run storybook-export
 
 CMD [ "npm", "start" ]
