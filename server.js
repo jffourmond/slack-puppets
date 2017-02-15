@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 
 const app = express();
-const PASSWORD = 'TMP_PASSWORD';
-const TOKEN = 'TMP_TOKEN';
+const PASSWORD = 'SLACTOR_PASSWORD';
+const TOKEN = 'SLACK_TOKEN';
 const SLACK_URL = 'https://slack.com/api/chat.postMessage';
 
 function sendErrorToSlactor(errorMsg, slactorResponse) {
