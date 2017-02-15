@@ -12,12 +12,6 @@ pipeline {
 
     stages {
        
-       stage('Checkout') {
-            steps {
-                git "https://github.com/jffourmond/slactor.git"
-            }
-       }       
-       
        stage('Edit files') {
             steps {
                 silentSh "sed -ie s/SLACK_TOKEN/$SLACK_TOKEN/ server.js"
