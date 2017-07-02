@@ -1,4 +1,4 @@
-FROM node:6.2.2
+FROM node:6.11
 
 RUN mkdir -p /docker/slactor
 COPY . /docker/slactor/
